@@ -1,3 +1,5 @@
+[![Download Latest Release](https://img.shields.io/github/v/release/UniFy-Endpoint/UniFy-Endpoint-Tool?label=Download%20Latest&style=for-the-badge&logo=github)](https://github.com/UniFy-Endpoint/UniFy-Endpoint-Tool/releases/latest)
+
 # TenuVault v2.0 - Enterprise Intune Backup & Restore Solution
 
 <p align="center">
