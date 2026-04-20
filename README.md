@@ -516,7 +516,6 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
 ## Support & Resources
 
-- **GitHub Issues:** [https://github.com/ugurkocde/UniFy-Endpoint/issues](https://github.com/ugurkocde/UniFy-Endpoint/issues)
 - **Microsoft Graph Docs:** [https://learn.microsoft.com/graph](https://learn.microsoft.com/graph)
 - **Intune API Reference:** [https://learn.microsoft.com/graph/api/resources/intune-graph-overview](https://learn.microsoft.com/graph/api/resources/intune-graph-overview)
 
