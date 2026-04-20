@@ -1,6 +1,6 @@
 [![Download Latest Release](https://img.shields.io/github/v/release/UniFy-Endpoint/UniFy-Endpoint-Tool?label=Download%20Latest&style=for-the-badge&logo=github)](https://github.com/UniFy-Endpoint/UniFy-Endpoint-Tool/releases/latest)
 
-# TenuVault v2.0 - Enterprise Intune Backup & Restore Solution
+# UniFy-Endpoint v2.0 - Enterprise Intune Backup & Restore Solution
 
 <p align="center">
   <img src="https://img.shields.io/badge/PowerShell-5.1%2B-blue.svg" alt="PowerShell 5.1+">
@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/Platforms-Windows%20%7C%20iOS%20%7C%20Android%20%7C%20macOS-purple.svg" alt="Multi-Platform">
 </p>
 
-TenuVault is a comprehensive PowerShell-based tool for backing up and restoring Microsoft Intune configurations. The tool emphasizes **safety** by implementing read-only backups and non-destructive restore operations that create new policies rather than modifying existing ones.
+UniFy-Endpoint is a comprehensive PowerShell-based tool for backing up and restoring Microsoft Intune configurations. The tool emphasizes **safety** by implementing read-only backups and non-destructive restore operations that create new policies rather than modifying existing ones.
 
 **Original Author:** [Ugur Koc](https://github.com/ugurkocde)
 **Enhanced By:** Yoennis Olmo
@@ -120,7 +120,7 @@ TenuVault is a comprehensive PowerShell-based tool for backing up and restoring 
 
 ## Safety First
 
-TenuVault is designed with safety as the primary concern:
+UniFy-Endpoint is designed with safety as the primary concern:
 
 1. Read-Only Backups: The backup operation only reads from your Intune tenant. It never modifies anything.
 
@@ -137,7 +137,7 @@ TenuVault is designed with safety as the primary concern:
 ### Prerequisites
 
 - **Windows PowerShell 5.1** or **PowerShell Core 7.x**
-- **Microsoft.Graph.Authentication** module (auto-installed on TenuVault first run)
+- **Microsoft.Graph.Authentication** module (auto-installed on UniFy-Endpoint first run)
 - **Global Administrator** or **Intune Administrator** Role Premissions
 
 ---
@@ -158,88 +158,37 @@ Your account or app registration needs the following Microsoft Graph permissions
 
 ---
 
-## Installation
-
-### Install from PowerShell Gallery
-
-# Install TenuVault from PowerShell Gallery
-  `Install-Script -Name TenuVault`
-
-# Run TenuVault
-  `TenuVault`
-
----
-
-### Updating TenuVault
-
-# Update to the latest version from PowerShell Gallery:
-
-# Update TenuVault to the latest version
-  `Update-Script -Name TenuVault`
-
-# Verify the installed version
-  `Get-InstalledScript -Name TenuVault`
-
----
-
-### Download TenuVault v2.0
-
-**Option 1: Clone from GitHub**
-```powershell
-git clone https://github.com/ugurkocde/TenuVault.git
-cd TenuVault
-```
-
-**Option 2: Download ZIP**
-1. Download from: https://github.com/ugurkocde/TenuVault
-2. Extract to a folder (e.g., `C:\TenuVault`)
-3. Unblock the script:
-```powershell
-Unblock-File -Path "C:\TenuVault\TenuVault_v2.0.ps1"
-```
-
----
-
-## Usage
-
-### Interactive Mode
-
-```powershell
-# Launch interactive menu
-.\TenuVault_v2.0.ps1
-```
-
 ### Command-Line Mode
 
 ```powershell
 # Full backup (all components, all platforms)
-.\TenuVault_v2.0.ps1 -Backup
+.\UniFy-Endpoint_v2.0.ps1 -Backup
 
 # Backup with custom name and location
-.\TenuVault_v2.0.ps1 -Backup -BackupName "Full-Backup-2026-01-24" -BackupPath "C:\TenuVault\Backups"
+.\UniFy-Endpoint_v2.0.ps1 -Backup -BackupName "Full-Backup-2026-01-24" -BackupPath "C:\UniFy-Endpoint\Backups"
 
 # Platform-specific backup
-.\TenuVault_v2.0.ps1 -Backup -Platform Windows
-.\TenuVault_v2.0.ps1 -Backup -Platform iOS
-.\TenuVault_v2.0.ps1 -Backup -Platform Android
-.\TenuVault_v2.0.ps1 -Backup -Platform macOS
+.\UniFy-Endpoint_v2.0.ps1 -Backup -Platform Windows
+.\UniFy-Endpoint_v2.0.ps1 -Backup -Platform iOS
+.\UniFy-Endpoint_v2.0.ps1 -Backup -Platform Android
+.\UniFy-Endpoint_v2.0.ps1 -Backup -Platform macOS
 
 # Component-specific backup
-.\TenuVault_v2.0.ps1 -Backup -Components AutopilotProfiles,EnrollmentStatusPage
+.\UniFy-Endpoint_v2.0.ps1 -Backup -Components AutopilotProfiles,EnrollmentStatusPage
 
 # Restore from backup
-.\TenuVault_v2.0.ps1 -Restore -RestorePath "C:\TenuVault\Full-Backup-2026-01-24"
+.\UniFy-Endpoint_v2.0.ps1 -Restore -RestorePath "C:\UniFy-Endpoint\Full-Backup-2026-01-24"
 
 # Export to different formats
-.\TenuVault_v2.0.ps1 -Export -ExportFormat JSON
-.\TenuVault_v2.0.ps1 -Export -ExportFormat CSV
-.\TenuVault_v2.0.ps1 -Export -ExportFormat HTML
+.\UniFy-Endpoint_v2.0.ps1 -Export -ExportFormat JSON
+.\UniFy-Endpoint_v2.0.ps1 -Export -ExportFormat CSV
+.\UniFy-Endpoint_v2.0.ps1 -Export -ExportFormat HTML
 ```
 
 ### Certificate Authentication (Recommended for Automation)
 
 ```powershell
-.\TenuVault_v2.0.ps1 -Backup `
+.\UniFy-Endpoint_v2.0.ps1 -Backup `
   -AppId "12345678-1234-1234-1234-123456789012" `
   -TenantId "contoso.onmicrosoft.com" `
   -CertificateThumbprint "A1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0"
@@ -248,7 +197,7 @@ Unblock-File -Path "C:\TenuVault\TenuVault_v2.0.ps1"
 ### Client Secret Authentication (Alternative)
 
 ```powershell
-.\TenuVault_v2.0.ps1 -Backup `
+.\UniFy-Endpoint_v2.0.ps1 -Backup `
   -AppId "12345678-1234-1234-1234-123456789012" `
   -TenantId "contoso.onmicrosoft.com" `
   -ClientSecret "your-client-secret-value"
@@ -454,12 +403,12 @@ powershell.exe
 
 **Arguments (Certificate Auth - Recommended):**
 ```
--ExecutionPolicy Bypass -File "C:\TenuVault\TenuVault_v2.0.ps1" -Backup -AppId "your-app-id" -TenantId "your-tenant-id" -CertificateThumbprint "your-thumbprint"
+-ExecutionPolicy Bypass -File "C:\UniFy-Endpoint\UniFy-Endpoint_v2.0.ps1" -Backup -AppId "your-app-id" -TenantId "your-tenant-id" -CertificateThumbprint "your-thumbprint"
 ```
 
 **Arguments (Client Secret Auth - Alternative):**
 ```
--ExecutionPolicy Bypass -File "C:\TenuVault\TenuVault_v2.0.ps1" -Backup -AppId "your-app-id" -TenantId "your-tenant-id" -ClientSecret "your-secret"
+-ExecutionPolicy Bypass -File "C:\UniFy-Endpoint\UniFy-Endpoint_v2.0.ps1" -Backup -AppId "your-app-id" -TenantId "your-tenant-id" -ClientSecret "your-secret"
 ```
 
 ### PowerShell Scheduled Script
@@ -467,7 +416,7 @@ powershell.exe
 **Option 1: Certificate Authentication (Recommended)**
 ```powershell
 # RunBackup.ps1
-$scriptPath = "C:\TenuVault\TenuVault_v2.0.ps1"
+$scriptPath = "C:\UniFy-Endpoint\UniFy-Endpoint_v2.0.ps1"
 $backupPath = "D:\IntuneBackups"
 $appId = "your-app-id"
 $tenantId = "your-tenant-id"
@@ -484,7 +433,7 @@ $certThumbprint = "your-cert-thumbprint"
 **Option 2: Client Secret Authentication**
 ```powershell
 # RunBackup.ps1
-$scriptPath = "C:\TenuVault\TenuVault_v2.0.ps1"
+$scriptPath = "C:\UniFy-Endpoint\UniFy-Endpoint_v2.0.ps1"
 $backupPath = "D:\IntuneBackups"
 $appId = "your-app-id"
 $tenantId = "your-tenant-id"
@@ -567,7 +516,7 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
 ## Support & Resources
 
-- **GitHub Issues:** [https://github.com/ugurkocde/TenuVault/issues](https://github.com/ugurkocde/TenuVault/issues)
+- **GitHub Issues:** [https://github.com/ugurkocde/UniFy-Endpoint/issues](https://github.com/ugurkocde/UniFy-Endpoint/issues)
 - **Microsoft Graph Docs:** [https://learn.microsoft.com/graph](https://learn.microsoft.com/graph)
 - **Intune API Reference:** [https://learn.microsoft.com/graph/api/resources/intune-graph-overview](https://learn.microsoft.com/graph/api/resources/intune-graph-overview)
 
@@ -579,4 +528,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**TenuVault v2.0** - Your Enterprise Intune Configuration Safety Net
+**UniFy-Endpoint v2.0** - Your Enterprise Intune Configuration Safety Net
